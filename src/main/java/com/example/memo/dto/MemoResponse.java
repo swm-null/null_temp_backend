@@ -14,13 +14,13 @@ public record MemoResponse(
     @Schema(description = "내용", example = "text", requiredMode = REQUIRED)
     String content,
     @Schema(description = "태그", example = "text", requiredMode = REQUIRED)
-    List<String> tag
+    List<String> tags
 ) {
     public static MemoResponse from(Memo memo) {
         return new MemoResponse(
             memo.getId(),
             memo.getContent(),
-            memo.getTag()
+            memo.getTags()
         );
     }
 }

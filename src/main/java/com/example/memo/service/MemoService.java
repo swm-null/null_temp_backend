@@ -24,7 +24,6 @@ public class MemoService {
     public MemoResponse createMemo(MemoRequest request) {
         Memo memo = request.toEntity();
         Memo savedMemo = memoRepository.save(memo);
-
         return MemoResponse.from(savedMemo);
     }
 

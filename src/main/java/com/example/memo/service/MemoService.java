@@ -54,11 +54,9 @@ public class MemoService {
                 memoResponses.add(MemoResponse.from(memo));
             }
         } else {
-            Memo memo = new Memo("1", "메모를 찾지 못했습니다.", null);
+            Memo memo = new Memo("0", "메모를 찾지 못했습니다.", null);
             memoResponses.add(MemoResponse.from(memo));
         }
-
-
         return memoResponses;
     }
 }

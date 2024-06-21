@@ -1,4 +1,4 @@
-package com.example.memo.dto;
+package com.example.memo.memo.service.models;
 
 import java.util.List;
 

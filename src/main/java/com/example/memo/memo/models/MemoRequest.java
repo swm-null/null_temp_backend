@@ -1,10 +1,10 @@
-package com.example.memo.dto;
+package com.example.memo.memo.models;
 
 import static io.swagger.v3.oas.annotations.media.Schema.RequiredMode.REQUIRED;
 
 import java.util.List;
 
-import com.example.memo.model.Memo;
+import com.example.memo.memo.service.models.Memo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
@@ -15,10 +15,5 @@ public record MemoRequest(
     String content
 
 ) {
-    public Memo toEntity(List<String> tags) {
-        return Memo.builder()
-            .content(content)
-            .tags(tags)
-            .build();
-    }
+
 }

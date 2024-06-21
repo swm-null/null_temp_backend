@@ -1,4 +1,4 @@
-package com.example.memo.model;
+package com.example.memo.memo.service.models;
 
 import java.util.List;
 

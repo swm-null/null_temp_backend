@@ -1,12 +1,11 @@
-package com.example.memo.repository;
+package com.example.memo.memo.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
-import com.example.memo.model.Memo;
+import com.example.memo.memo.service.models.Memo;
 
 public interface MemoRepository extends MongoRepository<Memo, String> {
 

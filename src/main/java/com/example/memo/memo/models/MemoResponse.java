@@ -1,10 +1,10 @@
-package com.example.memo.dto;
+package com.example.memo.memo.models;
 
 import static io.swagger.v3.oas.annotations.media.Schema.RequiredMode.REQUIRED;
 
 import java.util.List;
 
-import com.example.memo.model.Memo;
+import com.example.memo.memo.service.models.Memo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
@@ -16,11 +16,4 @@ public record MemoResponse(
     @Schema(description = "태그", example = "text", requiredMode = REQUIRED)
     List<String> tags
 ) {
-    public static MemoResponse from(Memo memo) {
-        return new MemoResponse(
-            memo.getId(),
-            memo.getContent(),
-            memo.getTags()
-        );
-    }
 }

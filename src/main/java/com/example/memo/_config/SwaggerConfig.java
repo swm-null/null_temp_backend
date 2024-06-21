@@ -1,4 +1,4 @@
-package com.example.memo.global.config;
+package com.example.memo._config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

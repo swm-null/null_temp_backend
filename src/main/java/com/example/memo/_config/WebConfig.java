@@ -1,4 +1,4 @@
-package com.example.memo.global.config;
+package com.example.memo._config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,6 +12,7 @@ import com.example.memo.memo.service.models.AiResponse;
 import com.example.memo.memo.service.models.Memo;
 import com.example.memo.memo.service.models.MemoRequestBridge;
 import com.example.memo.memo.service.models.MemoResponseBridge;
+import com.example.memo.memo.service.models.SaveResponse;
 
 import lombok.RequiredArgsConstructor;
 
@@ -28,9 +30,9 @@ public class MemoService {
         Memo memo = MemoRequestBridge.toMemo(memoRequestBridge);
         Memo savedMemo = memoRepository.save(memo);
 
-        // ai 저장 기능 미완성
-        // List<String> tags = restTemplateService.getTags(savedMemo.getId(), savedMemo.getContent());
-        // memo.updateTags(tags);
+        ResponseEntity<SaveResponse> saveResponse  = restTemplateService.getTags(memoRequestBridge);
+
+        savedMemo.update(saveResponse.getBody().getMemo_id(), saveResponse.getBody().getTags());
 
         return MemoResponseBridge.from(savedMemo);
     }

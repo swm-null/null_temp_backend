@@ -32,4 +32,9 @@ public class Memo {
     public void updateTags(List<String> tags) {
         this.tags = tags;
     }
+
+    public void update(String memoId, List<String> tags) {
+        this.id = memoId;
+        this.tags = tags;
+    }
 }

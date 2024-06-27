@@ -10,6 +10,8 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.example.memo.memo.service.models.AiResponse;
+import com.example.memo.memo.service.models.MemoRequestBridge;
+import com.example.memo.memo.service.models.SaveResponse;
 
 @Service
 public class RestTemplateService {
@@ -18,18 +20,16 @@ public class RestTemplateService {
     @Value("${AI_URL}")
     private String aiUrl;
 
-    public List<String> getTags(String id, String content) {
-        return null;
+    public ResponseEntity<SaveResponse> getTags(MemoRequestBridge memoRequestBridge) {
+        String uri = aiUrl + "/add_memo/";
+        ResponseEntity<SaveResponse> aiResponse = restTemplate.postForEntity(uri, memoRequestBridge, SaveResponse.class);
+        return aiResponse;
     }
 
     public AiResponse searchMemo(String content) {
         System.out.println(content);
-        URI uri = UriComponentsBuilder
-            .fromUriString(aiUrl)
-            .path("/user_query")
-            .queryParam("query", content)
-            .build(false)
-            .toUri();
+
+        String uri = aiUrl + "/user_query?query=" + content;
 
         System.out.println(uri);
         ResponseEntity<AiResponse> aiResponse = restTemplate.getForEntity(uri, AiResponse.class);

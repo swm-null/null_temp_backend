@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: memo
+  data:
+    mongodb:
+      uri: http://rapisim.asuscomm.com:8000
+  ai:
+    url: mongodb+srv://DBnull:0603@null.elzeun4.mongodb.net/nullMemo?retryWrites=true&w=majority&appName=null
